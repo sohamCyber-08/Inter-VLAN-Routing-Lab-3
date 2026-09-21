@@ -72,11 +72,11 @@ This lab demonstrates two approaches:
 
 <br/>
 
-
+### Switch Configuration
 <img width="1857" height="532" alt="Screenshot 2026-09-21 173958" src="https://github.com/user-attachments/assets/ea267cca-1319-44f4-90ff-13bee424ca4d" />
 <br/>
 <br/>
-### Switch Configuration
+
 <img width="1896" height="418" alt="Screenshot 2026-09-21 174010" src="https://github.com/user-attachments/assets/d791f820-868d-44ff-bb7c-b14da5601a23" />
 
 
