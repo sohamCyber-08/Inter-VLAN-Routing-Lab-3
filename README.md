@@ -14,11 +14,11 @@ This lab demonstrates two approaches:
 1. Inter-VLAN routing using separate physical router interfaces.
 2. Router-on-a-Stick using one physical router interface with multiple subinterfaces.
 
-<br/>
+
 
 ---
 
-<br/>
+
 
 ## 🖥️ Topology 1 — Separate Router Interfaces
 
@@ -473,4 +473,4 @@ problem by carrying multiple VLANs over a single physical router
 interface.
 
 <br/>
-```
+
