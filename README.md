@@ -1,11 +1,7 @@
 
-````markdown
+# 🧪 Inter-VLAN Routing Lab
 
-#🧪 Inter-VLAN Routing Lab
-
-🎯 Objective
-
-
+## 🎯 Objective
 
 Configure communication between two different VLANs using a Cisco router
 and understand how Layer 3 routing enables communication between
@@ -16,10 +12,11 @@ This lab demonstrates two approaches:
 1. Inter-VLAN routing using separate physical router interfaces.
 2. Router-on-a-Stick using one physical router interface with multiple subinterfaces.
 
+---
 
-## 🖥️ Topology 1 — Separate Router Interfaces
+## 🖥️ Topology
 
-
+### 1️⃣ Separate Router Interfaces
 
 ```text
                          Router
@@ -38,8 +35,7 @@ This lab demonstrates two approaches:
                       |          |
                VPC_VLAN10    VPC_VLAN20
                10.1.1.10     10.2.2.10
-````
-
+```
 <img width="1835" height="902" alt="Screenshot 2026-09-21 173837" src="https://github.com/user-attachments/assets/e86122cf-aed3-49ec-8370-1493637286fa" />
 
 <br/>
