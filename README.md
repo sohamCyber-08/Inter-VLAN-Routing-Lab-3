@@ -12,7 +12,8 @@ This lab demonstrates two approaches:
 2. Router-on-a-Stick using one physical router interface with multiple subinterfaces.
 
 ---
-
+<br>
+<br>
 ## 🖥️ Topology 1 — Separate Router Interfaces
 
 ```text
@@ -39,6 +40,8 @@ This lab demonstrates two approaches:
 
 
 ```
+<br>
+<br>
 🌐 IP Addressing
 
 | Device       | VLAN | IP Address | Subnet Mask   | Default Gateway |
@@ -48,7 +51,10 @@ This lab demonstrates two approaches:
 | VPC_VLAN20   |   20 | 10.2.2.10  | 255.255.255.0 | 10.2.2.1        |
 | Router Gi0/1 |   20 | 10.2.2.1   | 255.255.255.0 | -               |
 
-
+<br>
+<br>
+<br>
+<br>
 
 🔧 Technologies
 EVE-NG
@@ -63,33 +69,10 @@ IEEE 802.1Q
 ARP
 ICMP
 
-
-ICMP
-🔹 VLAN Configuration
-
-Created VLAN 10 and VLAN 20 on the switch.
-
-vlan 10
- name VLAN10
-
-vlan 20
- name VLAN20
-Access Port Configuration
-
-VLAN 10:
-
-interface gigabitEthernet0/0
- switchport mode access
- switchport access vlan 10
-
-VLAN 20:
-
-interface gigabitEthernet0/1
- switchport mode access
- switchport access vlan 20
-Verification
-show vlan brief
-
+<br>
+<br>
+<br>
+<br>
 📸 Add Screenshot — VLAN and access port verification.
 
 1️⃣ Initial Design — Separate Physical Router Interfaces
@@ -111,16 +94,12 @@ VLAN 20
      |
 Router Gi0/1
 
-Router configuration:
-
-interface gigabitEthernet0/0
- ip address 10.1.1.1 255.255.255.0
- no shutdown
-
-interface gigabitEthernet0/1
- ip address 10.2.2.1 255.255.255.0
- no shutdown
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
@@ -168,7 +147,12 @@ lookup, and forwards the packet through Gi0/1 toward the
 The destination host then returns the ICMP Echo Reply through its
 default gateway 10.2.2.1.
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
@@ -189,7 +173,10 @@ VLAN 40 → Router Gi0/3
 
 As the number of VLANs increases, more physical router interfaces
 are required.
-
+<br>
+<br>
+<br>
+<br>
 Limitations
 Higher physical interface consumption
 More physical cabling
@@ -198,6 +185,10 @@ Increased hardware requirements
 Less efficient use of router interfaces
 
 This creates a physical interface scalability problem.
+<br>
+<br>
+<br>
+<br>
 
 2️⃣ Solution — Router-on-a-Stick
 
@@ -222,32 +213,15 @@ carries traffic for multiple VLANs over the same physical link.
            10.1.1.10    10.2.2.10
 
 📸 Add Screenshot — Router-on-a-Stick topology.
-
-🔗 Router-on-a-Stick Configuration
-Physical Interface
-interface gigabitEthernet0/0
- no ip address
- no shutdown
-VLAN 10 Subinterface
-interface gigabitEthernet0/0.10
- encapsulation dot1Q 10
- ip address 10.1.1.1 255.255.255.0
-VLAN 20 Subinterface
-interface gigabitEthernet0/0.20
- encapsulation dot1Q 20
- ip address 10.2.2.1 255.255.255.0
-🔗 Switch Trunk Configuration
-
-The switch interface connected to the router is configured as an
-802.1Q trunk.
-
-interface gigabitEthernet0/2
- switchport mode trunk
- switchport trunk allowed vlan 10,20
-
-The trunk carries both VLAN 10 and VLAN 20 traffic between the
-switch and router.
-
+The trunk carries both VLAN 10 and VLAN 20 traffic between the switch and router.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 📊 Communication Process — Router-on-a-Stick
 ```mermaid
@@ -271,6 +245,7 @@ flowchart TD
     Q --> R[Successful Inter-VLAN Communication]
 ```
 
+
 How It Works
 
 The source host identifies that the destination belongs to another
@@ -287,6 +262,14 @@ through subinterface Gi0/0.20, which represents VLAN 20.
 
 The traffic then travels back through the trunk to the switch and is
 forwarded through the VLAN 20 access port to the destination host.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 🔍 Verification
 Check VLANs
@@ -317,6 +300,14 @@ VPC_VLAN20 successfully communicated with:
 10.1.1.10
 
 📸 Add Screenshot — Successful Router-on-a-Stick ping test.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 📝 Note
 
@@ -336,13 +327,25 @@ The switch-to-router connection operates as an 802.1Q trunk, allowing
 multiple VLANs to share the same physical link while the router
 performs Layer 3 routing between the VLANs.
 
+<br>
+<br>
+<br>
+<br>
 💡 What Was Solved
 
 The initial design required:
 
 1 VLAN = 1 Physical Router Interface
+<br>
+<br>
+<br>
+<br>
 
 Router-on-a-Stick changes this to:
+<br>
+<br>
+<br>
+<br>
 
 Multiple VLANs
       ↓
@@ -353,12 +356,14 @@ Multiple Subinterfaces
 802.1Q Trunk
       ↓
 Inter-VLAN Routing
-
+<br>
+<br>
+<br>
+<br>
 This reduces physical interface requirements and provides a more
 scalable approach for VLAN-based networks.
 
 ✅ Result
-
 The initial topology successfully provided communication between
 VLAN 10 and VLAN 20 using separate physical router interfaces.
 
