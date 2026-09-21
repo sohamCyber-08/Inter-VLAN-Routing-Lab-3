@@ -1,8 +1,4 @@
-Yes. The main issue is that `<br>` by itself can behave inconsistently in GitHub Markdown. For reliable spacing, use **`<br/>`** and keep headings as proper Markdown headings.
 
-I also fixed the sections that were appearing as paragraphs by adding `##` / `###` headings.
-
-Copy **everything inside this single code block** into your `README.md`:
 
 ````markdown
 # 🧪 Inter-VLAN Routing Lab
@@ -45,6 +41,8 @@ This lab demonstrates two approaches:
                10.1.1.10     10.2.2.10
 ````
 
+<img width="1835" height="902" alt="Screenshot 2026-09-21 173837" src="https://github.com/user-attachments/assets/e86122cf-aed3-49ec-8370-1493637286fa" />
+
 <br/>
 
 ## 🌐 IP Addressing
@@ -74,51 +72,17 @@ This lab demonstrates two approaches:
 
 <br/>
 
-## 🔹 VLAN Configuration
 
-Created VLAN 10 and VLAN 20 on the switch.
+<img width="1857" height="532" alt="Screenshot 2026-09-21 173958" src="https://github.com/user-attachments/assets/ea267cca-1319-44f4-90ff-13bee424ca4d" />
 
-```cisco
-vlan 10
- name VLAN10
+<img width="1896" height="418" alt="Screenshot 2026-09-21 174010" src="https://github.com/user-attachments/assets/d791f820-868d-44ff-bb7c-b14da5601a23" />
 
-vlan 20
- name VLAN20
-```
+
+
 
 <br/>
 
-### Access Port Configuration
 
-#### VLAN 10
-
-```cisco
-interface gigabitEthernet0/0
- switchport mode access
- switchport access vlan 10
-```
-
-<br/>
-
-#### VLAN 20
-
-```cisco
-interface gigabitEthernet0/1
- switchport mode access
- switchport access vlan 20
-```
-
-<br/>
-
-### Verification
-
-```cisco
-show vlan brief
-```
-
-<br/>
-
-📸 **Add Screenshot — VLAN and access port verification.**
 
 <br/>
 <br/>
@@ -149,16 +113,9 @@ Router Gi0/1
 <br/>
 
 ### Router Configuration
+<img width="1916" height="871" alt="Screenshot 2026-09-21 174047" src="https://github.com/user-attachments/assets/a8c6990d-cc0e-429b-883a-893980c79cd8" />
 
-```cisco
-interface gigabitEthernet0/0
- ip address 10.1.1.1 255.255.255.0
- no shutdown
 
-interface gigabitEthernet0/1
- ip address 10.2.2.1 255.255.255.0
- no shutdown
-```
 
 <br/>
 
@@ -211,6 +168,7 @@ default gateway `10.2.2.1`.
 
 <br/>
 <br/>
+<img width="1906" height="971" alt="Screenshot 2026-09-21 174126" src="https://github.com/user-attachments/assets/3036cf34-31ba-4609-bdde-2fa956e79b19" />
 
 ---
 
@@ -284,9 +242,11 @@ carries traffic for multiple VLANs over the same physical link.
            10.1.1.10    10.2.2.10
 ```
 
+
 <br/>
 
-📸 **Add Screenshot — Router-on-a-Stick topology.**
+<img width="1881" height="907" alt="Screenshot 2026-09-21 175805" src="https://github.com/user-attachments/assets/c3e5f2d5-9674-4803-8b38-5b791b977041" />
+
 
 <br/>
 
@@ -302,33 +262,11 @@ switch and router.
 
 ## 🔗 Router-on-a-Stick Configuration
 
-### Physical Interface
 
-```cisco
-interface gigabitEthernet0/0
- no ip address
- no shutdown
-```
 
 <br/>
+<img width="1897" height="888" alt="Screenshot 2026-09-21 175859" src="https://github.com/user-attachments/assets/cfb94bf5-ce69-4466-9575-54108acb506d" />
 
-### VLAN 10 Subinterface
-
-```cisco
-interface gigabitEthernet0/0.10
- encapsulation dot1Q 10
- ip address 10.1.1.1 255.255.255.0
-```
-
-<br/>
-
-### VLAN 20 Subinterface
-
-```cisco
-interface gigabitEthernet0/0.20
- encapsulation dot1Q 20
- ip address 10.2.2.1 255.255.255.0
-```
 
 <br/>
 <br/>
@@ -339,14 +277,8 @@ The switch interface connected to the router is configured as an
 802.1Q trunk.
 
 <br/>
+<img width="1887" height="765" alt="Screenshot 2026-09-21 175842" src="https://github.com/user-attachments/assets/da02b9ec-ecce-46b3-92aa-99929e0303d6" />
 
-```cisco
-interface gigabitEthernet0/2
- switchport mode trunk
- switchport trunk allowed vlan 10,20
-```
-
-<br/>
 
 The trunk carries both VLAN 10 and VLAN 20 traffic between the
 switch and router.
@@ -408,48 +340,6 @@ forwarded through the VLAN 20 access port to the destination host.
 <br/>
 
 ## 🔍 Verification
-
-### Check VLANs
-
-```cisco
-show vlan brief
-```
-
-<br/>
-
-### Check Trunk
-
-```cisco
-show interfaces trunk
-```
-
-<br/>
-
-### Check Router Interfaces
-
-```cisco
-show ip interface brief
-```
-
-<br/>
-
-### Check Router Subinterfaces
-
-```cisco
-show running-config interface gigabitEthernet0/0.10
-show running-config interface gigabitEthernet0/0.20
-```
-
-<br/>
-
-### Check Routing Table
-
-```cisco
-show ip route
-```
-
-<br/>
-
 ### Test VLAN 10 to VLAN 20
 
 ```bash
@@ -464,36 +354,11 @@ ping 10.2.2.10
 ping 10.1.1.10
 ```
 
-<br/>
-<br/>
+<img width="1902" height="1007" alt="Screenshot 2026-09-21 175924" src="https://github.com/user-attachments/assets/56170997-a0c1-459e-8d41-f7b69ca17cff" />
 
----
 
-<br/>
-
-## 🧪 Connectivity Verification
-
-### VLAN 10 → VLAN 20
-
-VPC_VLAN10 successfully communicated with:
-
-```text
-10.2.2.10
-```
 
 <br/>
-
-### VLAN 20 → VLAN 10
-
-VPC_VLAN20 successfully communicated with:
-
-```text
-10.1.1.10
-```
-
-<br/>
-
-📸 **Add Screenshot — Successful Router-on-a-Stick ping test.**
 
 <br/>
 <br/>
