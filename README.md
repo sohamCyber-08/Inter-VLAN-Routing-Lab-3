@@ -371,6 +371,9 @@ Both VLANs successfully communicated through Layer 3 routing, while
 the router used the appropriate subinterface as the gateway for each
 VLAN.
 
+
+
+
 📚 Key Learning
 
 This lab helped me understand inter-VLAN routing, default gateways,
