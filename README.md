@@ -17,10 +17,9 @@ This lab demonstrates two approaches:
 2. Router-on-a-Stick using one physical router interface with multiple subinterfaces.
 
 
-
-
-
 ## 🖥️ Topology 1 — Separate Router Interfaces
+
+
 
 ```text
                          Router
