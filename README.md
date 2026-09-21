@@ -1,10 +1,11 @@
+🧪 Inter-VLAN Routing Lab
 
+🎯 Objective
 
 ````markdown
 
 
-🧪 Inter-VLAN Routing Lab
-🎯 Objective
+
 
 Configure communication between two different VLANs using a Cisco router
 and understand how Layer 3 routing enables communication between
