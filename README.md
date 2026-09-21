@@ -123,6 +123,8 @@ interface gigabitEthernet0/1
 
 
 
+
+
 📊 Communication Process — Initial Design
 
 When VPC_VLAN10 communicates with VPC_VLAN20, the destination
