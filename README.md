@@ -5,6 +5,8 @@
 
 🎯 Objective
 
+
+
 Configure communication between two different VLANs using a Cisco router
 and understand how Layer 3 routing enables communication between
 separate Layer 2 broadcast domains.
@@ -13,7 +15,6 @@ This lab demonstrates two approaches:
 
 1. Inter-VLAN routing using separate physical router interfaces.
 2. Router-on-a-Stick using one physical router interface with multiple subinterfaces.
-
 
 
 
